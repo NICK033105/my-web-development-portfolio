@@ -1,0 +1,110 @@
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+.navbar-brand {
+  letter-spacing: 2px;
+}
+
+.hero {
+  background-color: #202832;
+  color: white;
+  padding: 80px 0;
+}
+
+.hero h1 {
+  letter-spacing: 3px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.car-image {
+  height: 220px;
+  object-fit: cover;
+}
+
+.card {
+  border: none;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.btn-danger {
+  background-color: #d93636;
+  border-color: #d93636;
+}
+
+.btn-outline-danger {
+  color: #d93636;
+  border-color: #d93636;
+}
+
+.btn-outline-danger:hover {
+  background-color: #d93636;
+  color: white;
+}
+
+.categories {
+  background-color: #e8e8e8;
+}
+
+.category-box {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 5px;
+  height: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.category-box h4 {
+  font-weight: bold;
+  color: #d93636;
+}
+
+.about-section {
+  background-color: white;
+}
+
+.about-section p {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+footer {
+  margin-top: 0;
+}
+
+footer a {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 55px 15px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .car-image {
+    height: 200px;
+  }
+}

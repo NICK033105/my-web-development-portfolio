@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 25px;
+        }
+
+        .box {
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+            min-height: 40px;
+        }
+
+        button {
+            margin: 8px 0;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Exercise 1</h2>
+
+    <p id="message"></p>
+
+    <select id="travel">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+    </select>
+
+    <button onclick="resetScreen()">Reset Screen</button>
+
+    <h2>Exercise 2</h2>
+
+    <div class="box">
+        <p id="gender"></p>
+    </div>
+
+    <button onclick="revealGender()">Reveal Gender</button>
+
+    <h2>Exercise 3</h2>
+
+    <input type="text" id="color" placeholder="Enter a color">
+
+    <div class="box" id="colorBox">
+        <p id="colorText"></p>
+    </div>
+
+    <button onclick="showColor()">Show Color</button>
+
+    <h2>Extra Credit</h2>
+
+    <label for="continent">Choose a continent:</label>
+
+    <select id="continent">
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+    </select>
+
+    <p id="countryMessage"></p>
+
+    <label for="country">Choose a country:</label>
+
+    <select id="country">
+        <option>France</option>
+        <option>Italy</option>
+        <option>Spain</option>
+    </select>
+
+    <br>
+
+    <button onclick="renderCountries()">Show Countries</button>
+
+    <script>
+        function resetScreen() {
+            document.getElementById("message").innerHTML =
+                "Where do you want to travel?";
+
+            let travel = document.getElementById("travel");
+            let countries = ["France", "Italy", "Spain"];
+
+            travel.innerHTML = "";
+
+            for (let i = 0; i < countries.length; i++) {
+                let option = document.createElement("option");
+                option.text = countries[i];
+                option.value = countries[i];
+                travel.add(option);
+            }
+        }
+
+        function revealGender() {
+            let gender = document.getElementById("gender");
+
+            if (Math.random() < 0.5) {
+                gender.innerHTML = "It's a boy";
+                gender.style.color = "blue";
+                gender.style.backgroundColor = "lightblue";
+                gender.style.fontWeight = "bold";
+                gender.style.fontStyle = "normal";
+            } else {
+                gender.innerHTML = "It's a girl";
+                gender.style.color = "purple";
+                gender.style.backgroundColor = "pink";
+                gender.style.fontWeight = "normal";
+                gender.style.fontStyle = "italic";
+            }
+        }
+
+        function showColor() {
+            let color = document.getElementById("color").value.trim();
+            let box = document.getElementById("colorBox");
+            let text = document.getElementById("colorText");
+
+            if (color !== "" && CSS.supports("background-color", color)) {
+                text.innerHTML = color;
+                box.style.backgroundColor = color;
+            } else {
+                text.innerHTML = "Please enter a valid color.";
+                box.style.backgroundColor = "white";
+            }
+        }
+
+        function renderCountries() {
+            let continent = document.getElementById("continent").value;
+            let country = document.getElementById("country");
+            let countries = [];
+
+            if (continent === "Europe") {
+                countries = ["France", "Italy", "Spain"];
+            } else if (continent === "Asia") {
+                countries = ["Thailand", "Cambodia", "Vietnam"];
+            } else if (continent === "Africa") {
+                countries = ["Congo", "Zymbawe", "South Africa"];
+            }
+
+            country.innerHTML = "";
+
+            for (let i = 0; i < countries.length; i++) {
+                let option = document.createElement("option");
+                option.text = countries[i];
+                option.value = countries[i];
+                country.add(option);
+            }
+
+            document.getElementById("countryMessage").innerHTML =
+                "Countries in " + continent;
+        }
+    </script>
+
+</body>
+</html>

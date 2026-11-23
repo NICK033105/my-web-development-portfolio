@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinyl Vault</title>
+<style>
+*{box-sizing:border-box}
+:root{--brown:#4b3024;--tan:#a86c43;--paper:#f4efe6;--line:#cbb8a7}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#38291f;background:var(--paper)}
+header{background:var(--brown);color:#fff;text-align:center;height:110px;padding:28px 16px 18px}
+header h1{margin:0 0 10px;font-size:24px}header p{margin:0;font-size:12px}
+nav{background:var(--tan);height:32px;display:flex;align-items:center;justify-content:center;gap:10px}
+nav button{border:0;background:transparent;color:#fff;font:inherit;font-size:12px;padding:9px 13px;cursor:pointer}
+nav button:hover,nav button:focus-visible{background:rgba(75,48,36,.35);outline:1px solid #fff}
+nav button.active{background:rgba(75,48,36,.18)}
+main{width:calc(100% - 28px);max-width:1800px;margin:0 auto}
+h2{text-align:center;font-size:18px;margin:30px 0 34px;color:var(--brown)}
+.albums{display:flex;justify-content:center;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:45px}
+.album-card{width:154px;min-height:228px;background:#fff;padding:11px;border-radius:4px;box-shadow:0 2px 6px #0003;text-align:center;transition:transform .2s,box-shadow .2s}
+.album-card:hover{transform:translateY(-6px);box-shadow:0 9px 18px #0004}
+.cover{height:136px;width:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;line-height:1.2;font-weight:700;text-align:center;padding:8px;transition:filter .2s}
+.album-card:hover .cover{filter:brightness(1.16)}
+.midnight{background:linear-gradient(135deg,#1e3045,#778da8)}.blue{background:linear-gradient(135deg,#06354a,#5e9ab7)}.wild{background:linear-gradient(135deg,#850000,#c20c1c)}.golden{background:linear-gradient(135deg,#a14be0,#dfa4fa)}.funk{background:linear-gradient(135deg,#396846,#a3c84c)}
+.album-card h3{font-size:14px;margin:14px 0 13px;color:#292929}.price{color:var(--tan);font-size:12px;font-weight:700;margin:0}
+.artist{display:none;margin:12px 0 0;padding:7px 3px;background:var(--paper);font-size:10px;color:#4b4b4b;min-height:32px}
+.album-card:hover .artist{display:block}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12px;margin-bottom:24px}
+th{background:var(--brown);color:#fff;text-align:left;padding:9px 10px;border:1px solid var(--line)}td{padding:9px 10px;border:1px solid var(--line);color:#43352c}
+tbody tr:nth-child(even){background:#eee2d3}tbody tr:hover{background:#e1c7ae}
+.hidden{display:none!important}
+.about-title{text-align:center;font-size:18px;margin:27px 0 20px}
+.story-row{display:grid;grid-template-columns:176px 1fr 56px;gap:17px;align-items:start;min-height:130px;margin-bottom:18px}
+.music-card{background:#e7d3bb;border-left:3px solid var(--tan);padding:25px 11px 18px;min-height:117px;font-size:12px;line-height:1.6}
+.music-card strong{display:block;font-size:14px;margin-bottom:12px;white-space:nowrap}
+.story-copy{font-size:11px;line-height:1.6;padding-top:0;color:#292929}.story-copy p{margin:5px 0 12px}
+.est{background:var(--brown);color:#fff;font-size:8px;font-weight:bold;text-align:center;padding:7px 3px;margin-top:-7px}
+.what-we-do{background:#fff;min-height:90px;margin:0 0 35px;padding:1px 10px 20px}
+.what-we-do h2{margin:24px 0 14px}.what-we-do p{font-size:11px;margin:0}
+footer{background:var(--brown);border-top:3px solid var(--tan);color:#fff;text-align:center;padding:20px 12px 18px;font-size:11px;line-height:1.5}
+footer p{margin:4px 0}
+@media(max-width:650px){main{width:calc(100% - 20px)}.albums{gap:12px}.album-card{width:145px}.story-row{grid-template-columns:1fr;gap:10px}.music-card{min-height:0}.est{width:65px;margin:0}.what-we-do{margin-top:20px}table{font-size:11px}th,td{padding:8px 6px}}
+</style>
+</head>
+<body>
+<header><h1 id="siteTitle">Vinyl Vault</h1><p id="siteSubtitle">Your local record store</p></header>
+<nav aria-label="Main navigation"><button type="button" class="active" id="homeBtn">Home</button><button type="button" id="aboutBtn">About Us</button></nav>
+<main>
+<section id="homePage">
+<h2>Featured Albums</h2>
+<div class="albums">
+<article class="album-card" data-artist="The Midnighters" data-genre="Indie Rock"><div class="cover midnight">MIDNIGHT<br>DREAMS</div><h3>Midnight Dreams</h3><p class="price">$24.99</p><p class="artist">The Midnighters<br>Indie Rock</p></article>
+<article class="album-card" data-artist="Jazz Collective" data-genre="Jazz"><div class="cover blue">BLUE NOTES</div><h3>Blue Notes</h3><p class="price">$19.99</p><p class="artist">Jazz Collective<br>Jazz</p></article>
+<article class="album-card" data-artist="The Drifters" data-genre="Alternative Rock"><div class="cover wild">WILD<br>HORIZONS</div><h3>Wild Horizons</h3><p class="price">$22.50</p><p class="artist">The Drifters<br>Alternative Rock</p></article>
+<article class="album-card" data-artist="Ava Summer" data-genre="Pop"><div class="cover golden">GOLDEN<br>HOUR</div><h3>Golden Hour</h3><p class="price">$21.99</p><p class="artist">Ava Summer<br>Pop</p></article>
+<article class="album-card" data-artist="The Groove" data-genre="Funk"><div class="cover funk">FUNK<br>REVIVAL</div><h3>Funk Revival</h3><p class="price">$25.00</p><p class="artist">The Groove<br>Funk</p></article>
+</div>
+<h2 style="margin:0 0 19px">Record Inventory</h2>
+<table><thead><tr><th>Artist Name</th><th>Album Name</th><th>Price</th></tr></thead><tbody>
+<tr><td>The Midnighters</td><td>Midnight Dreams</td><td>$24.99</td></tr><tr><td>Jazz Collective</td><td>Blue Notes</td><td>$19.99</td></tr><tr><td>The Drifters</td><td>Wild Horizons</td><td>$22.50</td></tr><tr><td>Ava Summer</td><td>Golden Hour</td><td>$21.99</td></tr><tr><td>The Groove</td><td>Funk Revival</td><td>$25.00</td></tr>
+</tbody></table>
+</section>
+<section id="aboutPage" class="hidden">
+<h2 class="about-title">Our Story</h2>
+<div class="story-row">
+<aside class="music-card"><strong>Made for Music Lovers</strong>Good records, good music,<br>good times.</aside>
+<div class="story-copy">
+<p>Vinyl Vault started with a love for music and a collection of old records. We wanted to create a place where people could find their favorite albums and discover something new.</p>
+<p>We carry a variety of music, including rock, jazz, pop, and funk. Whether you have been collecting records for years or are just getting started, there is something here for you.</p>
+<p>Our goal is to give music fans a friendly place to shop, talk about their favorite artists, and enjoy the experience of listening to records.</p>
+</div>
+<div class="est">EST. 2020</div>
+</div>
+<section class="what-we-do"><h2>What We Do</h2><p>We sell records, help customers find music they love, and hope to make every visit a good one.</p></section>
+<footer><p>Vinyl Vault Record Store</p><p>Email: hello@vinylvault.example</p><p>Phone: (555) 123-4567</p></footer>
+</section>
+</main>
+<script>
+const homeBtn=document.getElementById('homeBtn'),aboutBtn=document.getElementById('aboutBtn');
+const homePage=document.getElementById('homePage'),aboutPage=document.getElementById('aboutPage');
+const siteTitle=document.getElementById('siteTitle'),siteSubtitle=document.getElementById('siteSubtitle');
+function showPage(which){
+ const home=which==='home';
+ homePage.classList.toggle('hidden',!home);aboutPage.classList.toggle('hidden',home);
+ homeBtn.classList.toggle('active',home);aboutBtn.classList.toggle('active',!home);
+ siteTitle.textContent=home?'Vinyl Vault':'About Vinyl Vault';
+ siteSubtitle.textContent=home?'Your local record store':'A place for music lovers';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+homeBtn.addEventListener('click',()=>showPage('home'));aboutBtn.addEventListener('click',()=>showPage('about'));
+</script>
+</body>
+</html>
